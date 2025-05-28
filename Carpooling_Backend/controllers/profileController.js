@@ -41,6 +41,7 @@ exports.updateProfile = async (req, res) => {
     const userId = req.params.userId;
     const updates = req.body;
 
+
     // Parse nested fields if they come as strings
     if (typeof updates.vehicleDetails === "string") {
       updates.vehicleDetails = JSON.parse(updates.vehicleDetails);
