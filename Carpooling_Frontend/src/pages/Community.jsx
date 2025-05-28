@@ -43,6 +43,7 @@ function Community() {
   const [checkingSubscription, setCheckingSubscription] = useState(true);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   
+  const PORT=import.meta.env.VITE_API_URL
 
   const navigate = useNavigate();
 
@@ -76,7 +77,7 @@ function Community() {
       setCurrentUserId(decoded.userId);
       console.log("Decoded userId:", decoded.userId);
       const response = await axios.get(
-        `http://localhost:3000/api/v1/payments/subscription-status?userId=${decoded.userId}`,
+        `${PORT}/api/v1/payments/subscription-status?userId=${decoded.userId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -102,7 +103,7 @@ function Community() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:3000/api/v1/community/posts",
+        `${PORT}/api/v1/community/posts`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setPosts(response.data.posts);
@@ -133,7 +134,7 @@ function Community() {
     const token = localStorage.getItem("token");
     // Step 1: Create an order on the backend
     const orderResponse = await axios.post(
-      "http://localhost:3000/api/v1/payments/create-order",
+      `${PORT}/api/v1/payments/create-order`,
       { amount: 100, currency: "INR" },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -185,7 +186,7 @@ function Community() {
       console.log(userId)
       // Send payment verification to your backend
       await axios.post(
-        "http://localhost:3000/api/v1/payments/verify",
+        `${PORT}/api/v1/payments/verify`,
         { 
           razorpay_payment_id: response.razorpay_payment_id,
           razorpay_order_id: response.razorpay_order_id,
@@ -216,7 +217,7 @@ function Community() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:3000/api/v1/community/posts",
+        `${PORT}/api/v1/community/posts`,
         { content, category },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -232,7 +233,7 @@ function Community() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:3000/api/v1/community/posts/react",
+        `${PORT}/api/v1/community/posts/react`,
         { postId, reactionType },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -253,7 +254,7 @@ function Community() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:3000/api/v1/community/posts/comment",
+        `${PORT}/api/v1/community/posts/comment`,
         { postId, content: commentContent },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -291,7 +292,7 @@ function Community() {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:3000/api/v1/community/posts/${deletePostId}`,
+        `${PORT}/api/v1/community/posts/${deletePostId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setPosts(posts.filter((post) => post._id !== deletePostId));
@@ -306,7 +307,7 @@ function Community() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.delete(
-        `http://localhost:3000/api/v1/community/posts/${deletePostId}/comments/${deleteCommentId}`,
+        `${PORT}/api/v1/community/posts/${deletePostId}/comments/${deleteCommentId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setPosts(

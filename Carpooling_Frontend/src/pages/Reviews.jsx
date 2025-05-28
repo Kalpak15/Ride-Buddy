@@ -6,10 +6,10 @@ function Reviews() {
   const [content, setContent] = useState('');
   const [rating, setRating] = useState('');
   const [reviews, setReviews] = useState([]);
-
+  const PORT=import.meta.env.VITE_API_URL
   const fetchReviews = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:3000/api/v1/reviews/get-reviews');
+      const response = await axios.get(`${PORT}/api/v1/reviews/get-reviews`);
       setReviews(response.data);
     } catch (error) {
       console.error('Error fetching reviews:', error);
@@ -26,7 +26,7 @@ function Reviews() {
     const user_id = JSON.parse(atob(token.split('.')[1])).user_id; 
     try {
       await axios.post(
-        'http://127.0.0.1:3000/api/v1/reviews/post-review',
+        `${PORT}/api/v1/reviews/post-review`,
         { user_id, title, content, rating },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -25,19 +25,21 @@ function BookRide() {
   const [submitted, setSubmitted] = useState(false);
   const [bookingDetails, setBookingDetails] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const PORT=import.meta.env.VITE_API_URL
 
   const [formData, setFormData] = useState({
     start: "",
     destination: "",
     seats: 1,
   });
+  
 
   useEffect(() => {
     const fetchRideDetails = async () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `http://localhost:3000/api/v1/book-ride/${id}`,
+          `${PORT}/api/v1/book-ride/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -85,7 +87,7 @@ function BookRide() {
       };
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `http://localhost:3000/api/v1/create-passenger-ride/${id}`,
+        `${PORT}/api/v1/create-passenger-ride/${id}`,
         formDataToSend,
         {
           headers: {

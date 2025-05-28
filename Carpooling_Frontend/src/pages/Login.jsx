@@ -14,6 +14,8 @@ function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
+  const PORT=import.meta.env.VITE_API_URL
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +27,7 @@ function LoginPage() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:3000/api/v1/auth/login", {
+      const response = await fetch(`${PORT}/api/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

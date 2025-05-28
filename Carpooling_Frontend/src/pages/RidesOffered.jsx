@@ -21,14 +21,14 @@ const RidesOffered = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("all");
   const [sortBy, setSortBy] = useState("date");
-
+  const PORT=import.meta.env.VITE_API_URL
   useEffect(() => {
     const fetchRides = async () => {
       try {
         setLoading(true);
         const token = localStorage.getItem("token");
         const response = await fetch(
-          `http://localhost:3000/api/v1/get-rides/${userId}`,
+          `${PORT}/api/v1/get-rides/${userId}`,
           {
             method: "GET",
             headers: {

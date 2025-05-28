@@ -11,6 +11,8 @@ function App() {
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  
+  const PORT=import.meta.env.VITE_API_URL
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +27,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/v1/auth/change-password",
+        `${PORT}/api/v1/auth/change-password`,
         {
           method: "POST",
           headers: {

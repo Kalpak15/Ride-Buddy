@@ -81,7 +81,7 @@ const ProfilePage = () => {
   const [error, setError] = useState(null);
   const [currentUserId, setCurrentUserId] = useState(null); // Add current user ID state
   const [showRazorpayButton, setShowRazorpayButton] = useState(false);
-  
+  const PORT=import.meta.env.VITE_API_URL
   const [user, setUser] = useState({
     name: "",
     phoneNumber: "",
@@ -477,7 +477,6 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
-
 
 
 

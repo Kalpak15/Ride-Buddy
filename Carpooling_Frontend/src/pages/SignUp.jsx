@@ -25,7 +25,7 @@ function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const PORT=import.meta.env.VITE_API_URL
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -104,7 +104,7 @@ function SignUp() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/auth/signup",
+        `${PORT}/api/v1/auth/signup`,
         formDataToSubmit,
         {
           headers: {

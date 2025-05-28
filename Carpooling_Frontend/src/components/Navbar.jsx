@@ -24,6 +24,8 @@ function Navbar() {
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const navigate = useNavigate();
   const notificationRef = useRef(null); // Ref for outside click detection
+  
+  const PORT=import.meta.env.VITE_API_URL
 
   const handleLogInNavigation = () => {
     navigate("/login");
@@ -65,7 +67,8 @@ function Navbar() {
       const fetchNotifications = async () => {
         try {
           const response = await fetch(
-            `http://localhost:3000/api/v1/notifications/${userId}`
+            `${PORT}/api/v1/notifications/${userId}`
+            
           );
           const data = await response.json();
           setNotifications(data);
@@ -96,7 +99,7 @@ function Navbar() {
   const markAsRead = async (id) => {
     try {
       await fetch(
-        `http://localhost:3000/api/v1/notifications/read/${id}`,
+        `${PORT}/api/v1/notifications/read/${id}`,
         {
           method: "PUT",
         }

@@ -51,6 +51,9 @@ function EditProfile() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  const PORT=import.meta.env.VITE_API_URL
+  
   const [profile, setProfile] = useState({
     email: "",
     firstName: "",
@@ -76,6 +79,7 @@ function EditProfile() {
     },
     profilePicture: null,
   });
+  
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -122,7 +126,7 @@ function EditProfile() {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/profile/edit-profile/${userId}`,
+        `${PORT}/api/v1/profile/edit-profile/${userId}`,
         profile,
         {
           headers: {
@@ -154,7 +158,7 @@ function EditProfile() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.put(
-        `http://localhost:3000/api/v1/profile/upload-profile-picture/${userId}`,
+        `${PORT}/api/v1/profile/upload-profile-picture/${userId}`,
         formData,
         {
           headers: {

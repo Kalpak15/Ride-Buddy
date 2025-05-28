@@ -35,6 +35,7 @@ function CreateRide() {
   const [hasMembership, setHasMembership] = useState(false); // New state for membership
   const [checkingMembership, setCheckingMembership] = useState(true); // New state for loading
 
+  const PORT=import.meta.env.VITE_API_URL
   // Check membership status when the component mounts
   useEffect(() => {
     const checkUserMembership = async () => {
@@ -49,7 +50,7 @@ function CreateRide() {
       try {
         const decoded = JSON.parse(atob(token.split(".")[1]));
         const response = await axios.get(
-          `http://localhost:3000/api/v1/payments/subscription-status?userId=${decoded.userId}`,
+          `${PORT}/api/v1/payments/subscription-status?userId=${decoded.userId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -194,7 +195,7 @@ function CreateRide() {
       };
       console.log("Ride Object:", rideData);
       const response = await axios.post(
-        "http://localhost:3000/api/v1/create-ride",
+        `${PORT}/api/v1/create-ride`,
         rideData,
         {
           headers: {

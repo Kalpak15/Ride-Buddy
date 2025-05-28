@@ -47,7 +47,9 @@ function FindRides() {
   const [deleteReason, setDeleteReason] = useState("");
   const [customReason, setCustomReason] = useState("");
   const [isOtherSelected, setIsOtherSelected] = useState(false);
-
+  
+  const PORT=import.meta.env.VITE_API_URL
+  
   const commonReasons = [
     "Emergency Situation",
     "Vehicle Breakdown",
@@ -55,6 +57,7 @@ function FindRides() {
     "Weather Conditions",
     "Other",
   ];
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -77,7 +80,7 @@ function FindRides() {
     const fetchRides = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/find-ride",
+          `${PORT}/api/v1/find-ride`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -220,7 +223,7 @@ function FindRides() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.delete(
-        `http://localhost:3000/api/v1/delete-ride/${rideToDelete}`,
+        `${PORT}/api/v1/delete-ride/${rideToDelete}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
