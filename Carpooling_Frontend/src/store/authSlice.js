@@ -18,7 +18,7 @@ const authSlice = createSlice({
       localStorage.setItem("token", action.payload.token);
     },
     logout(state) {
-      state.isLoggedIn = false;
+      state.isLoggedIn= false;
       state.token = null; // Clear the token
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("token"); // Remove token from localStorage

@@ -27,6 +27,7 @@ import RidesOffered from "./pages/RidesOffered";
 import RidesTaken from "./pages/RidesTaken";
 import Community from "./pages/Community";
 
+
 function App() {
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth); // Get token from Redux

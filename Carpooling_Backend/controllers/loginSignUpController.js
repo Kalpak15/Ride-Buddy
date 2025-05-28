@@ -199,6 +199,7 @@ const changePassword = async (req, res) => {
   }
 };
 
+
 const verifyEmail = async (req, res) => {
   try {
     const { email, verificationCode } = req.body;
