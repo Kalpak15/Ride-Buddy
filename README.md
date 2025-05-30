@@ -34,10 +34,8 @@ In today's fast-paced world, transportation challenges affect everyone - from da
 - **Reputation System**: Community feedback builds trust
 
 ### 🗺️ Intelligent Ride Management
-- **Smart Matching**: Advanced algorithms connect compatible users
 - **Flexible Scheduling**: Create rides that fit your timeline
 - **Real-Time Updates**: Live ride availability and booking status
-- **Route Optimization**: Efficient pickup and drop-off coordination
 
 ### 💳 Seamless Payment Integration
 - **Razorpay Payment Gateway**: Secure transaction processing
@@ -69,7 +67,7 @@ In today's fast-paced world, transportation challenges affect everyone - from da
 Before running Ride Buddy, make sure you have:
 
 - **Node.js** (v14 or higher)
-- **npm** or **yarn** package manager
+- **npm** package manager
 - **MongoDB** database (local or cloud)
 - **Git** version control
 
@@ -92,21 +90,15 @@ Before running Ride Buddy, make sure you have:
    cd ..
    ```
 
-3. **Environment Setup**
-   ```bash
-   # Create environment configuration
-   cp .env.example .env
-   ```
-   
    **⚠️ Important:** Configure your environment variables before running the application.
 
-4. **Start the application**
+3. **Start the application**
    ```bash
    # Development mode
    npm run dev
    ```
 
-5. **Access the application**
+4. **Access the application**
    - Open your browser and navigate to the local development server
    - Create your account and start connecting with your community!
 
@@ -114,12 +106,13 @@ Before running Ride Buddy, make sure you have:
 
 ```
 ride-buddy/
-├── client/                 # React frontend application
-├── server/                 # Express.js backend application
-├── models/                 # MongoDB data models
-├── routes/                 # API route definitions
-├── middleware/             # Authentication and security middleware
-└── README.md               # Project Documentation
+├── Carpooling_Frontend/    # React frontend application
+├── Carpooling_Backend/     # Express.js backend application
+├── package.json            # Backend dependencies
+├── package-lock.json       # Backend dependency lock
+├── vite.svg               # Vite build tool configuration
+├── .gitignore             # Git ignore rules
+└── README.md              # Project Documentation
 ```
 
 ## 🎮 How to Use Ride Buddy
