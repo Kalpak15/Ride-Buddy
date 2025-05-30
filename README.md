@@ -75,7 +75,7 @@ Before running Ride Buddy, make sure you have:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ride-buddy.git
+   git clone https://github.com/kalpak15/ride-buddy.git
    cd ride-buddy
    ```
 
