@@ -219,6 +219,10 @@ This project demonstrates expertise in:
 
 Made with ❤️ for smarter transportation everywhere
 
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 🌟 **Star this project** • 🐛 **Report Bug** • 💡 **Request Feature** • 🤝 **Contribute**
 
 *Transforming transportation, one ride at a time*
