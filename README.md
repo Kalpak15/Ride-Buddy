@@ -75,17 +75,18 @@ Before running Ride Buddy, make sure you have:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/kalpak15/ride-buddy.git
+   git clone https://github.com/Kalpak15/Ride-Buddy.git
    cd ride-buddy
    ```
 
 2. **Install dependencies**
    ```bash
    # Install backend dependencies
+   cd Carpooling_Backend
    npm install
    
    # Install frontend dependencies
-   cd client
+   cd Carpooling_Frontend
    npm install
    cd ..
    ```
