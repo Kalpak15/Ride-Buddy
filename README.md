@@ -140,6 +140,11 @@ ride-buddy/
 2. **Membership Benefits**: Access exclusive platform features
 3. **Safety First**: Verified profiles and secure communications
 
+## 🚀 Demo
+
+*Live Demo:* [View Project](https://carpooling-system-frontend.onrender.com)
+
+
 ## 🤝 Contributing
 
 We welcome contributions from the community! Here's how you can help:
